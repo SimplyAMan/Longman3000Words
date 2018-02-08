@@ -50,12 +50,22 @@ public class WordTest {
     }
     @Test
     public void WordBeginWithDash() {
-        Word word = new Word(" - a b l y ");
-        assertEquals(" - a b l y ",word.getWord());
+        Word word = new Word("-ably");
+        assertEquals("-ably",word.getWord());
     }
     @Test
     public void WordWithParenthesiss() {
-        Word word = new Word(" ( a )   s t i c k   t o   b e a t   s o m e b o d y   w i t h ");
-        assertEquals(" ( a )   s t i c k   t o   b e a t   s o m e b o d y   w i t h ",word.getWord());
+        Word word = new Word("(a) stick to beat somebody with");
+        assertEquals("(a) stick to beat somebody with",word.getWord());
+    }
+    @Test
+    public void StartWordWithDollar() {
+        Word word = new Word("$64,000 question, the");
+        assertEquals("$64,000 question, the",word.getWord());
+    }
+    @Test
+    public void NotStartWithSharp() {
+        Word word = new Word("#NAME \"Longman DOCE 5th Ed. (En-En)\"");
+        assertEquals(null,word.getWord());
     }
 }

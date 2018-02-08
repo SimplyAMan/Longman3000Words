@@ -10,7 +10,8 @@ public class Word {
     private String word;
 
     public Word(String row) {
-        Pattern pattern = Pattern.compile("^[^\\t][\\w\\–\\s\\/\\-\\)\\(]+$");
+        Pattern pattern = Pattern.compile("^[^\\t\\s#].+$");
+        //"^[^\\t][\\w\\–\\s\\/\\-\\)\\(]+$"
         Matcher matcher = pattern.matcher(row);
         if (matcher.find())
             this.word = matcher.group();
